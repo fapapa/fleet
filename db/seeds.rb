@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# Create the status seeds
+Status.create(status: 'active')
+Status.create(status: 'inactive')
+Status.create(status: 'suspended')
