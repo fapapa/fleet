@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_31_214258) do
+ActiveRecord::Schema.define(version: 2020_01_31_215432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "drivers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.bigint "status_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["status_id"], name: "index_drivers_on_status_id"
+  end
 
   create_table "statuses", force: :cascade do |t|
     t.string "status"
@@ -21,4 +30,5 @@ ActiveRecord::Schema.define(version: 2020_01_31_214258) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "drivers", "statuses"
 end
