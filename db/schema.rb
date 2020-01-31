@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_31_225845) do
+ActiveRecord::Schema.define(version: 2020_01_31_231001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,18 @@ ActiveRecord::Schema.define(version: 2020_01_31_225845) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "trips", force: :cascade do |t|
+    t.date "date"
+    t.bigint "driver_id", null: false
+    t.bigint "tractor_id", null: false
+    t.integer "origin_id", null: false
+    t.integer "destination_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["driver_id"], name: "index_trips_on_driver_id"
+    t.index ["tractor_id"], name: "index_trips_on_tractor_id"
+  end
+
   create_table "warehouses", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -49,4 +61,6 @@ ActiveRecord::Schema.define(version: 2020_01_31_225845) do
   end
 
   add_foreign_key "drivers", "statuses"
+  add_foreign_key "trips", "drivers"
+  add_foreign_key "trips", "tractors"
 end
