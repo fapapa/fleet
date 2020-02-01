@@ -1,2 +1,18 @@
-<h1>Stats#index</h1>
-<p>Find me in app/views/stats/index.html.erb</p>
+<h1>Statistics</h1>
+
+<a href="#" id="update">Update</a>
+
+<h2>Trips</h2>
+
+<ul>
+  <% @trips.each do |trip| %>
+  <li><%= trip.date %></li>
+  <% end %>
+</ul>
+
+<h2>Drivers</h2>
+<ul>
+  <% @drivers.each do |driver| %>
+  <li><%= "#{driver.first_name} #{driver.last_name}" %></li>
+  <% end %>
+</ul>
