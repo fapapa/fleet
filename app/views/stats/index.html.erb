@@ -30,8 +30,20 @@
 </table>
 
 <h2>Drivers</h2>
-<ul>
-  <% @drivers.each do |driver| %>
-  <li><%= "#{driver.first_name} #{driver.last_name}" %></li>
-  <% end %>
-</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Driver</th>
+      <th>Total Trips</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @drivers.each do |driver| %>
+    <tr>
+      <td><%= "#{driver.last_name}, #{driver.first_name}" %></td>
+      <td><%= driver.trips.count %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
