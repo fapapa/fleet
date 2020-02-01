@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  driver: one
+  number: MyString
+  expiry_date: 2020-02-01
+
+two:
+  driver: two
+  number: MyString
+  expiry_date: 2020-02-01
