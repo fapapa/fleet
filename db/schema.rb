@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_31_231001) do
+ActiveRecord::Schema.define(version: 2020_02_01_214618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "driver_licenses", force: :cascade do |t|
+    t.bigint "driver_id", null: false
+    t.string "number"
+    t.date "expiry_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["driver_id"], name: "index_driver_licenses_on_driver_id"
+  end
 
   create_table "drivers", force: :cascade do |t|
     t.string "first_name"
@@ -60,6 +69,7 @@ ActiveRecord::Schema.define(version: 2020_01_31_231001) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "driver_licenses", "drivers"
   add_foreign_key "drivers", "statuses"
   add_foreign_key "trips", "drivers"
   add_foreign_key "trips", "tractors"
