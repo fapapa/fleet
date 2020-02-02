@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'stats', to: 'stats#index', as: :stats
+  get 'trip_count', to: 'stats#trip_count'
 end

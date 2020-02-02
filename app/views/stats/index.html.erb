@@ -1,0 +1,49 @@
+<h1>Statistics</h1>
+
+<a href="#" id="update">Check for new trips</a>
+
+<h2>Trips</h2>
+
+<table class="trips">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Date/Time</th>
+      <th>Origin</th>
+      <th>Destination</th>
+      <th>Driver</th>
+      <th>VIN#</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @trips.each do |trip| %>
+    <tr>
+      <td><%= trip.id %></td>
+      <td><%= trip.date %></td>
+      <td><%= trip.origin.name %></td>
+      <td><%= trip.destination.name %></td>
+      <td><%= "#{trip.driver.last_name}, #{trip.driver.first_name}" %></td>
+      <td><%= trip.tractor.vin %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Drivers</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Driver</th>
+      <th>Total Trips</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @drivers.each do |driver| %>
+    <tr>
+      <td><%= "#{driver.last_name}, #{driver.first_name}" %></td>
+      <td><%= driver.trips.count %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
