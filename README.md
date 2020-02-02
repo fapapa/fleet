@@ -55,7 +55,7 @@ $ rails db:setup # create database and seed with data
 $ rails s # start the rails server locally
 ```
 
-Then go to (http://localhost:3000/stats)[http://localhost:3000/stats] in your
+Then go to [http://localhost:3000/stats](http://localhost:3000/stats) in your
 browser of choice.
 
 ## Notes on my solution
