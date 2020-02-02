@@ -3,4 +3,8 @@ class StatsController < ApplicationController
     @trips = Trip.all
     @drivers = Driver.all
   end
+
+  def trip_count
+    render json: {"tripCount": Trip.count}
+  end
 end
